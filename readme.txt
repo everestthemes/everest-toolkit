@@ -3,8 +3,8 @@
 Contributors: everestthemes
 Requires at least: 4.8.0
 Requires PHP: 5.6
-Tested up to: 5.1.1
-Stable tag: 1.0.8
+Tested up to: 5.1.2
+Stable tag: 1.0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: everestthemes, demo, content, widgets, menus, import, content, demo, data, widgets, settings, themes
@@ -15,15 +15,15 @@ Tags: everestthemes, demo, content, widgets, menus, import, content, demo, data,
 A essential toolkit for themes made by everestthemes (everestthemes.com). Everest toolkit helps you to setup your website or blog faster.
 
 
-How to use this Everest Toolkit ? 
+How to use this Everest Toolkit ?
 
 1. While installing any free themes by everestthemes do kindly install & activate prompt plugin " everestthemes toolkit " or you can do this manually too.
 2. After activating Everest Toolkit plugin go to Apperence > theme about page.
 3. You will see necessary actions like recommended actions.
 4. Under Recommended action please feel free to activate plugins that you will need. For exmple: install plugin called WooCommerce if you need to setup e-commerce store.
-5. Keep in mind you need to install plugin called "One click demo import" if you need our demo contents. 
+5. Keep in mind you need to install plugin called "One click demo import" if you need our demo contents.
 6. If you think you don't need any of them ignore that recommended action.
-7. If you need demo contents, you should have already installed plugin called " One click demo import " till now. 
+7. If you need demo contents, you should have already installed plugin called " One click demo import " till now.
 8. Go to Apperence > Import demo contents.
 9. Choose your demo by checking live preview.
 10. Once demo is imported you can too uninstall plugin called "One click demo import" from Dashboard > Plugins.
@@ -68,12 +68,12 @@ Everest Toolkit is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 any later version.
- 
+
 Everest Toolkit is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
- 
+
 You should have received a copy of the GNU General Public License
 along with Everest Toolkit. If not, see <http://www.gnu.org/licenses/>.
 
@@ -86,8 +86,3 @@ along with Everest Toolkit. If not, see <http://www.gnu.org/licenses/>.
 1. Visit 'Plugins > Add New',
 2. Search for 'Everest ToolKit' and install the plugin.
 3. Activate 'Everest ToolKit' from your Plugins page.
-
-
-
-
-

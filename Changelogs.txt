@@ -1,6 +1,10 @@
 
 == Changelog ==
 
+== 1.0.9 - May 25, 2019 ==
+
+- Added demo files for Ultra Lite Blog
+
 == 1.0.8 - April 21, 2019 ==
 
 - Added support for Everest News Lite
@@ -8,7 +12,7 @@
 
 == 1.0.7 - March 10, 2019 ==
 
-- Arya demo File fixed 
+- Arya demo File fixed
 
 == 1.0.6 - March 10, 2019 ==
 
