@@ -1,6 +1,10 @@
 
 == Changelog ==
 
+== 1.1.0 - June 18, 2019 ==
+
+- Added support for GuCherry Blog
+
 == 1.0.9 - May 25, 2019 ==
 
 - Added demo files for Ultra Lite Blog
