@@ -93,6 +93,11 @@ class ET_Admin_Demo_Config {
                 'theme_name' => 'Gucherry Blog',
                 'demo_class' => 'ET_Theme_Demo_Gucherry_Blog',
             ),
+            'gucherry_blog_pro' => array(
+
+                'theme_name' => 'Gucherry Blog Pro',
+                'demo_class' => 'ET_Theme_Demo_Gucherry_Blog_Pro',
+            ),
         );
     }
 
