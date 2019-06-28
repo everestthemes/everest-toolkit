@@ -90,12 +90,12 @@ class ET_Admin_Demo_Config {
             ),
             'gucherry_blog' => array(
 
-                'theme_name' => 'Gucherry Blog',
+                'theme_name' => 'GuCherry Blog',
                 'demo_class' => 'ET_Theme_Demo_Gucherry_Blog',
             ),
             'gucherry_blog_pro' => array(
 
-                'theme_name' => 'Gucherry Blog Pro',
+                'theme_name' => 'GuCherry Blog Pro',
                 'demo_class' => 'ET_Theme_Demo_Gucherry_Blog_Pro',
             ),
         );
