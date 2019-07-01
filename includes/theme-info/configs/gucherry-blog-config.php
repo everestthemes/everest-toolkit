@@ -38,7 +38,7 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_config'  ) ) {
 					),
 				'documentation_url' => array(
 					'text'   => esc_html__( 'View Documentation','everest-toolkit' ),
-					'url'    => 'https://everestthemes.com/doc/gucherry-blog-theme-documentation/',
+					'url'    => 'https://everestthemes.com/doc/gucherry-blog-wordpress-theme-documentation/',
 					),
 				'pro_url' => array(
 					'text' => esc_html__( 'Upgrade To Pro Theme','everest-toolkit' ),
@@ -69,7 +69,7 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_config'  ) ) {
 					'title'               => esc_html__( 'Theme Documentation', 'everest-toolkit' ),
 					'text'                => esc_html__( 'Find step by step instructions with video documentation to setup theme easily.', 'everest-toolkit' ),
 					'button_label'        => esc_html__( 'View documentation', 'everest-toolkit' ),
-					'button_link'         => 'https://everestthemes.com/doc/gucherry-blog-theme-documentation/',
+					'button_link'         => 'https://everestthemes.com/doc/gucherry-blog-wordpress-theme-documentation/',
 					'is_button'           => true,
 					'recommended_actions' => false,
 					'is_new_tab'          => true,
@@ -160,7 +160,7 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_config'  ) ) {
 					'icon'         => 'dashicons dashicons-book-alt',
 					'text'         => esc_html__( 'Kindly check our theme documentation for detailed information and video instructions.', 'everest-toolkit' ),
 					'button_label' => esc_html__( 'View Documentation', 'everest-toolkit' ),
-					'button_link'  => 'https://everestthemes.com/doc/gucherry-blog-theme-documentation/',
+					'button_link'  => 'https://everestthemes.com/doc/gucherry-blog-wordpress-theme-documentation/',
 					'is_button'    => true,
 					'is_new_tab'   => true,
 				),

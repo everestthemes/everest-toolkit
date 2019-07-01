@@ -46,5 +46,7 @@ class ET_Theme_Demo_Gucherry_Blog extends ET_Theme_Demo {
 			} 
 			set_theme_mod('nav_menu_locations', $locations); 
 		}
+        
+        update_option( 'everest_themes', $installed_demos );
 	}
 }
