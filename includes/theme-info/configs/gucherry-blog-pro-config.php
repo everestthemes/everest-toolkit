@@ -30,7 +30,7 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_pro_config'  ) ) {
 				),
 				'theme_url' => array(
 					'text' => esc_html__( 'Theme Details','everest-toolkit' ),
-					'url'  => 'https://everestthemes.com/themes/gucherry-blog-pro-wordpress-theme/',
+					'url'  => 'https://everestthemes.com/themes/gucherry-blog-pro/',
 					),
 				'demo_url' => array(
 					'text' => esc_html__( 'View Demo','everest-toolkit' ),
@@ -92,7 +92,7 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_pro_config'  ) ) {
 					'title'        			=> esc_html__( 'Youtube Video Tutorials', 'everest-toolkit' ),
 					'text'         			=> esc_html__( 'Please check our youtube channel for video instructions of everest-toolkit setup and customization.', 'everest-toolkit' ),
 					'button_label' 			=> esc_html__( 'Video Tutorials', 'everest-toolkit' ),
-					'button_link'  			=> 'https://www.youtube.com/watch?v=5wYE3JMuIBs',
+					'button_link'  			=> 'https://www.youtube.com/playlist?list=PLgMh7pEKsDa5hWwJIa2J_gl1Knep5h5d1',
 					'is_button'    			=> true,
 					'recommended_actions' 	=> false,
 					'is_new_tab'   			=> true,
@@ -154,7 +154,7 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_pro_config'  ) ) {
 					'icon'         => 'dashicons dashicons-video-alt3',
 					'text'         => esc_html__( 'Please check our youtube channel for video instructions of everest-toolkit setup and customization.', 'everest-toolkit' ),
 					'button_label' => esc_html__( 'Video Tutorials', 'everest-toolkit' ),
-					'button_link'  => 'https://www.youtube.com/channel/UC825pGDla692zGISjiwjXaw',
+					'button_link'  => 'https://www.youtube.com/playlist?list=PLgMh7pEKsDa5hWwJIa2J_gl1Knep5h5d1',
 					'is_button'    => true,
 					'is_new_tab'   => true,
 				),
