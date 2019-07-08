@@ -4,7 +4,7 @@ Contributors: everestthemes
 Requires at least: 4.8.0
 Requires PHP: 5.6
 Tested up to: 5.2.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: everestthemes, demo, content, widgets, menus, import, content, demo, data, widgets, settings, themes

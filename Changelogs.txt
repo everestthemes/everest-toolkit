@@ -1,9 +1,13 @@
 
 == Changelog ==
 
-== 1.1.0 - July 8, 2019 ==
+== 1.1.1 - July 8, 2019 ==
 
 - Added support for GuCherry Blog
+
+== 1.1.0 - July 8, 2019 ==
+
+- Added demo files for GuCherry Blog
 
 == 1.0.9 - May 25, 2019 ==
 
