@@ -98,6 +98,11 @@ class ET_Admin_Demo_Config {
                 'theme_name' => 'GuCherry Blog Pro',
                 'demo_class' => 'ET_Theme_Demo_Gucherry_Blog_Pro',
             ),
+            'gucherry_lite' => array(
+
+                'theme_name' => 'GuCherry Lite',
+                'demo_class' => 'ET_Theme_Demo_Gucherry_Lite',
+            ),
         );
     }
 
