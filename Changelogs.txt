@@ -1,6 +1,10 @@
 
 == Changelog ==
 
+== 1.1.2- July 25, 2019 ==
+
+- Added support for GuCherry Lite
+
 == 1.1.1 - July 8, 2019 ==
 
 - Added support for GuCherry Blog

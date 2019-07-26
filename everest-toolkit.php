@@ -3,7 +3,7 @@
  * Plugin Name:       Everest Toolkit
  * Plugin URI:        https://wordpress.org/plugins/everest-toolkit/
  * Description:       Toolkit for themes and contains demo import options required for everestthemes.
- * Version:           1.1.1
+ * Version:           1.1.2
  * Author:            everestthemes
  * Author URI:        https://everestthemes.com
  * License:           GPL-2.0+
@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 
-define( 'EVERESTTOOLKIT_VERSION', '1.1.1' );
+define( 'EVERESTTOOLKIT_VERSION', '1.1.2' );
 
 // Define EVERESTTOOLKIT_PLUGIN_FILE.
 if ( ! defined( 'EVERESTTOOLKIT_PLUGIN_FILE' ) ) {
