@@ -8,7 +8,7 @@ class ET_Theme_Demo_Gucherry_Lite extends ET_Theme_Demo {
 
 	public static function import_files() {
 
-		$server_url = 'https://demo.everestthemes.com/demo-data/gucherry-lite/';
+		$server_url = 'https://demo.everestthemes.com/demo-data/gucherry-blog/child/gucherry-lite/';
 
 		$demo_urls  = array(
 			array(
@@ -17,7 +17,7 @@ class ET_Theme_Demo_Gucherry_Lite extends ET_Theme_Demo {
 				'import_widget_file_url'     => $server_url . 'widgets.wie',
 				'import_customizer_file_url' => $server_url . 'customizer.dat',
 				'import_preview_image_url'   => $server_url . 'screenshot.png',
-				'demo_url'                   => 'https://demo.everestthemes.com/gucherry/',
+				'demo_url'                   => 'https://demo.everestthemes.com/gucherry/gucherry-lite/',
 			)
 		);
 
