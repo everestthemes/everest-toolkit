@@ -1,6 +1,10 @@
 
 == Changelog ==
 
+== 1.1.3- July 28, 2019 ==
+
+- Language file updated
+
 == 1.1.2- July 25, 2019 ==
 
 - Added support for GuCherry Lite
