@@ -1,6 +1,10 @@
 
 == Changelog ==
 
+== 1.1.4- September 1, 2019 ==
+
+- Plugin recommendation updated
+
 == 1.1.3- July 28, 2019 ==
 
 - Language file updated

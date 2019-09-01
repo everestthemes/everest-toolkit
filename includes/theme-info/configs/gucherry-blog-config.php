@@ -127,19 +127,12 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_config'  ) ) {
 			// Recommended actions.
 			'recommended_actions' => array(
 				'content' => array(
-					'contact-form-7' => array(
-						'title'       => esc_html__( 'Contact Form 7', 'everest-toolkit' ),
-						'description' => esc_html__( 'Please install the Contact Form 7 plugin to create forms for contact. After activation go to Contact for creating form(s).', 'everest-toolkit' ),
-						'check'       => class_exists( 'WPCF7' ),
-						'plugin_slug' => 'contact-form-7',
-						'id'          => 'contact-form-7',
-					),
-					'universal-google-adsense-and-ads-manager' => array(
-						'title'       => esc_html__( 'Universal Google AdSense And Ads Manager', 'everest-toolkit' ),
-						'description' => esc_html__( 'Please install the Universal Google AdSense And Ads Manager plugin to add Google Adsense, custom ads & script to monetise your website easily. After activation go to UGAMM for instructions to use this plugin.', 'everest-toolkit' ),
-						'check'       => class_exists('Universal_Google_AdSense_And_Ads_Manager'),
-						'plugin_slug' => 'universal-google-adsense-and-ads-manager',
-						'id'          => 'universal-google-adsense-and-ads-manager',
+					'wpforms-lite' => array(
+						'title'       => esc_html__( 'Contact Form by WPForms : Drag & Drop Form Builder for WordPress', 'everest-toolkit' ),
+						'description' => esc_html__( 'Please install the Contact Form by WPForms plugin to create forms for contact. After activation go to WPForms for creating form(s).', 'everest-toolkit' ),
+						'check'       => class_exists( 'WPForms' ),
+						'plugin_slug' => 'wpforms-lite',
+						'id'          => 'wpforms-lite',
 					),
 				),
 			),

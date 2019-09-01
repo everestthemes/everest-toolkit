@@ -134,12 +134,12 @@ if( ! function_exists( 'everest_toolkit_mocho_blog_config'  ) ) {
 						'plugin_slug' => 'woocommerce',
 						'id'          => 'woocommerce',
 					),
-					'contact-form-7' => array(
-						'title'       => esc_html__( 'Contact Form 7', 'everest-toolkit' ),
-						'description' => esc_html__( 'Please install the Contact Form 7 plugin to create forms for contact. After activation go to Contact for creating form(s).', 'everest-toolkit' ),
-						'check'       => class_exists( 'WPCF7' ),
-						'plugin_slug' => 'contact-form-7',
-						'id'          => 'contact-form-7',
+					'wpforms-lite' => array(
+						'title'       => esc_html__( 'Contact Form by WPForms : Drag & Drop Form Builder for WordPress', 'everest-toolkit' ),
+						'description' => esc_html__( 'Please install the Contact Form by WPForms plugin to create forms for contact. After activation go to WPForms for creating form(s).', 'everest-toolkit' ),
+						'check'       => class_exists( 'WPForms' ),
+						'plugin_slug' => 'wpforms-lite',
+						'id'          => 'wpforms-lite',
 					),
 				),
 			),
