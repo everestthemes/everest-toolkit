@@ -1,6 +1,10 @@
 
 == Changelog ==
 
+== 1.1.4- October 20, 2019 ==
+
+- Added support for Grace Mag
+
 == 1.1.3- September 2, 2019 ==
 
 - Language file updated
