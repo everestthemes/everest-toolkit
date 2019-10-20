@@ -103,6 +103,11 @@ class ET_Admin_Demo_Config {
                 'theme_name' => 'GuCherry Lite',
                 'demo_class' => 'ET_Theme_Demo_Gucherry_Lite',
             ),
+            'grace_mag' => array(
+
+                'theme_name' => 'Grace Mag',
+                'demo_class' => 'ET_Theme_Demo_Grace_Mag',
+            ),
         );
     }
 
