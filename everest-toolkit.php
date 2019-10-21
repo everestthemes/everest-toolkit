@@ -1,15 +1,15 @@
 <?php
-/**
- * Plugin Name:       Everest Toolkit
- * Plugin URI:        https://wordpress.org/plugins/everest-toolkit/
- * Description:       Toolkit for themes and contains demo import options required for everestthemes.
- * Version:           1.1.5
- * Author:            everestthemes
- * Author URI:        https://everestthemes.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       everest-toolkit
- * Domain Path:       /languages
+/*
+Plugin Name:       Everest Toolkit
+Plugin URI:        https://wordpress.org/plugins/everest-toolkit/
+Description:       Toolkit for themes and contains demo import options required for everestthemes.
+Version:           1.1.5
+Author:            everestthemes
+Author URI:        https://everestthemes.com
+License:           GPL-2.0+
+License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+Text Domain:       everest-toolkit
+Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
