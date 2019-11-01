@@ -1,10 +1,13 @@
 
 == Changelog ==
 
+== 1.1.6- October 21, 2019 ==
+
+- Added support for Influence Blog
+
 == 1.1.5- October 21, 2019 ==
 
 - Added Missing File for Grace 
-
 
 == 1.1.4- October 20, 2019 ==
 

@@ -142,6 +142,30 @@ if( ! function_exists( 'everest_toolkit_theme_info_demo_loader' ) ) {
 
             add_action( 'admin_init', 'everest_toolkit_notice_ignore' );
         }
+        if( $theme_text_domain == 'grace-mag-pro' ) {
+
+            require_once plugin_dir_path( __FILE__ ) . 'theme-info/configs/grace-mag-pro-config.php';
+
+            add_action( 'admin_notices', 'everest_toolkit_admin_notice' );
+
+            add_action( 'admin_init', 'everest_toolkit_notice_ignore' );
+        }
+        if( $theme_text_domain == 'influence-blog' ) {
+
+            require_once plugin_dir_path( __FILE__ ) . 'theme-info/configs/influence-blog-config.php';
+
+            add_action( 'admin_notices', 'everest_toolkit_admin_notice' );
+
+            add_action( 'admin_init', 'everest_toolkit_notice_ignore' );
+        }
+        if( $theme_text_domain == 'influence-blog-pro' ) {
+
+            require_once plugin_dir_path( __FILE__ ) . 'theme-info/configs/influence-blog-pro-config.php';
+
+            add_action( 'admin_notices', 'everest_toolkit_admin_notice' );
+
+            add_action( 'admin_init', 'everest_toolkit_notice_ignore' );
+        }
 	}
 }
 
@@ -222,6 +246,6 @@ if( ! function_exists( 'everest_toolkit_theme_array' ) ) :
 
     function everest_toolkit_theme_array() {
 
-        return array( 'viable-blog', 'viable-blog-pro', 'mocho-blog', 'mocho-blog-pro', 'everest-news', 'everest-news-pro', 'arya-multipurpose', 'arya-multipurpose-pro', 'everest-news-lite', 'ultra-lite-blog', 'gucherry-blog', 'gucherry-blog-pro', 'gucherry-lite', 'grace-mag' );
+        return array( 'viable-blog', 'viable-blog-pro', 'mocho-blog', 'mocho-blog-pro', 'everest-news', 'everest-news-pro', 'arya-multipurpose', 'arya-multipurpose-pro', 'everest-news-lite', 'ultra-lite-blog', 'gucherry-blog', 'gucherry-blog-pro', 'gucherry-lite', 'grace-mag', 'grace-mag-pro', 'influence-blog', 'influence-blog-pro' );
     }
 endif;

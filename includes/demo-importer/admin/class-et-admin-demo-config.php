@@ -108,6 +108,21 @@ class ET_Admin_Demo_Config {
                 'theme_name' => 'Grace Mag',
                 'demo_class' => 'ET_Theme_Demo_Grace_Mag',
             ),
+            'grace_mag_pro' => array(
+
+                'theme_name' => 'Grace Mag Pro',
+                'demo_class' => 'ET_Theme_Demo_Grace_Mag_Pro',
+            ),
+            'influence_blog' => array(
+
+                'theme_name' => 'Influence Blog',
+                'demo_class' => 'ET_Theme_Demo_Influence_Blog',
+            ),
+            'influence_blog_pro' => array(
+
+                'theme_name' => 'Influence Blog Pro',
+                'demo_class' => 'ET_Theme_Demo_Influence_Blog_Pro',
+            ),
         );
     }
 
