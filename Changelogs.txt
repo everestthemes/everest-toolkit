@@ -4,6 +4,8 @@
 == 1.1.6- October 21, 2019 ==
 
 - Added support for Influence Blog
+- Added Grace Mag Pro demo import
+- Other minor modifications
 
 == 1.1.5- October 21, 2019 ==
 

@@ -10,7 +10,7 @@ if( ! function_exists( 'everest_toolkit_grace_mag_config'  ) ) {
 	function everest_toolkit_grace_mag_config() {
 
 		$config = array(
-			'menu_name' => esc_html__( 'Grace Mag Info', 'everest-toolkit' ),
+			//'menu_name' => esc_html__( 'Grace Mag Info', 'everest-toolkit' ),
 			'page_name' => esc_html__( 'Grace Mag Info', 'everest-toolkit' ),
 
 			/* translators: theme version */
