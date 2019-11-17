@@ -19,6 +19,22 @@ class ET_Theme_Demo_Grace_Mag_Pro extends ET_Theme_Demo {
 				'import_preview_image_url'   => $server_url . 'demo-one/screenshot.png',
 				'demo_url'                   => 'https://demo.everestthemes.com/gracemag/pro-demo-one/',
 			),
+            array(
+				'import_file_name'           => __( 'Demo Two', 'everest-toolkit' ),
+				'import_file_url'            => $server_url . 'demo-two/content.xml',
+				'import_widget_file_url'     => $server_url . 'demo-two/widgets.wie',
+				'import_customizer_file_url' => $server_url . 'demo-two/customizer.dat',
+				'import_preview_image_url'   => $server_url . 'demo-two/screenshot.png',
+				'demo_url'                   => 'https://demo.everestthemes.com/gracemag/pro-demo-two/',
+			),
+            array(
+				'import_file_name'           => __( 'Demo Three', 'everest-toolkit' ),
+				'import_file_url'            => $server_url . 'demo-three/content.xml',
+				'import_widget_file_url'     => $server_url . 'demo-three/widgets.wie',
+				'import_customizer_file_url' => $server_url . 'demo-three/customizer.dat',
+				'import_preview_image_url'   => $server_url . 'demo-three/screenshot.png',
+				'demo_url'                   => 'https://demo.everestthemes.com/gracemag/pro-demo-three/',
+			),
 		);
 
 		return $demo_urls;
@@ -29,20 +45,14 @@ class ET_Theme_Demo_Grace_Mag_Pro extends ET_Theme_Demo {
 		// SET Menus
         $import_file_name = isset( $selected_import['import_file_name'] ) ? $selected_import['import_file_name'] : '';
 
-	    if( !empty( $import_file_name ) ) {
+	    $primary_menu 	= get_term_by( 'name', 'Main Menu', 'nav_menu' );
 
-            if( $import_file_name == 'Demo One' ) {
-
-                $primary_menu 	= get_term_by( 'name', 'Main Menu', 'nav_menu' );
-
-			    set_theme_mod(
-			     	'nav_menu_locations',
-			     	array(
-			     		'menu-1' => $primary_menu->term_id
-			     	)
-			    );
-            }
-        }
+        set_theme_mod(
+            'nav_menu_locations',
+            array(
+                'menu-1' => $primary_menu->term_id
+            )
+        );
 
         // Assign front page and posts page (blog page).
 		$front_page_id = get_page_by_title( 'Home' );

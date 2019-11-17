@@ -187,7 +187,18 @@ if( ! function_exists( 'everest_toolkit_admin_notice' ) ) {
 
         $theme  = everest_toolkit_theme();
 
-        $admin_url = 'themes.php?page=' . esc_html( $theme->get( 'TextDomain' ) ) . '-about';
+        $theme_textDomain = $theme->get( 'TextDomain' );
+
+        if( $theme_textDomain === 'grace-mag' ) {
+
+            $admin_url = 'themes.php?page=' . esc_html( 'welcome-page' );
+
+        } else {
+
+            $admin_url = 'themes.php?page=' . esc_html( $theme->get( 'TextDomain' ) ) . '-about';
+        }
+
+
         
         if ( !get_user_meta( $user_id, esc_html( $theme->get( 'TextDomain' ) ) . '_notice_ignore' ) ) {
             ?>
