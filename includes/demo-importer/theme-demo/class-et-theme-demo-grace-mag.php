@@ -19,6 +19,14 @@ class ET_Theme_Demo_Grace_Mag extends ET_Theme_Demo {
 				'import_preview_image_url'   => $server_url . 'demo-one/screenshot.png',
 				'demo_url'                   => 'https://demo.everestthemes.com/gracemag/free-demo-one/',
 			),
+            array(
+				'import_file_name'           => __( 'Demo Two', 'everest-toolkit' ),
+				'import_file_url'            => $server_url . 'demo-two/content.xml',
+				'import_widget_file_url'     => $server_url . 'demo-two/widgets.wie',
+				'import_customizer_file_url' => $server_url . 'demo-two/customizer.dat',
+				'import_preview_image_url'   => $server_url . 'demo-two/screenshot.png',
+				'demo_url'                   => 'https://demo.everestthemes.com/gracemag/free-demo-two/',
+			),
 		);
 
 		return $demo_urls;
