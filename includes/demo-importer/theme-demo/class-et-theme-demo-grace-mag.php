@@ -35,25 +35,16 @@ class ET_Theme_Demo_Grace_Mag extends ET_Theme_Demo {
 	public static function after_import( $selected_import ) {
 
 		// SET Menus
-		$locations = get_theme_mod( 'nav_menu_locations' );
+        $import_file_name = isset( $selected_import['import_file_name'] ) ? $selected_import['import_file_name'] : '';
 
-		if(!empty($locations)) { 
+	    $primary_menu 	= get_term_by( 'name', 'Main Menu', 'nav_menu' );
 
-			foreach($locations as $locationId => $menuValue) { 
-
-				switch( $locationId ) { 
-					
-					case 'menu-1': 
-						$menu = get_term_by('name', 'Main Menu', 'nav_menu'); 
-						break;
-				} 
-				
-				if(isset($menu)) { 
-					$locations[$locationId] = $menu->term_id; 
-				} 
-			} 
-			set_theme_mod('nav_menu_locations', $locations); 
-		}
+        set_theme_mod(
+            'nav_menu_locations',
+            array(
+                'menu-1' => $primary_menu->term_id
+            )
+        );
 
 		// Assign front page and posts page (blog page).
 		$front_page_id = get_page_by_title( 'Home' );
