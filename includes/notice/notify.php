@@ -22,7 +22,7 @@ if( ! function_exists( 'everest_toolkit_notify_notice' ) ) {
             add_site_option('everest_toolkit_activate_time', time());
         }
 
-        $daysinseconds = 86400; // 5 Days in seconds (432000).
+        $daysinseconds = 10; // 5 Days in seconds (432000).
 
         if (time() - $activation_time > $daysinseconds) {
 
@@ -129,12 +129,11 @@ if( ! function_exists( 'everest_toolkit_notify_notice_message' ) ) {
         ?>
         <div class="everest-toolkit-review-notice">
             <div class="everest-toolkit-review-thumbnail">
-
                 <img src="<?php echo esc_url( $theme_screenshot ); ?>" alt="">
             </div>
             <div class="everest-toolkit-review-text">
                 <h3 class="et-notice-pro-heading">
-                    <?php echo sprintf( esc_html__( '%1$s : %2$s', 'everest-toolkit' ), esc_html( $offer_percent ), esc_html( $offer_heading ) ); ?>
+                    <?php echo sprintf( esc_html__( '%1$s : %2$s', 'everest-toolkit' ), '<span class="et-offer-percent">' . esc_html( $offer_percent ) . '</span>', '<span class="et-offer-heading">' . esc_html( $offer_heading ) . '</span>' ); ?>
                 </h3>
                 <p class="et-notice-pro-grab">
                     <?php echo sprintf( esc_html__( 'Grab %1$s of %2$s for Limited Time Only.', 'everest-toolkit' ), '<a href="'. esc_url( $theme_proLink ) .'" target="_blank">PREMIUM version</a>', esc_html( $theme_name ) ); ?>
@@ -177,7 +176,7 @@ if( ! function_exists( 'everest_toolkit_notify_notice_dismiss' ) ) {
 
             return;
         }
-        $daysinseconds = 43200; // 14 Days in seconds (1209600).
+        $daysinseconds = 10; // 14 Days in seconds (1209600).
         $newtime = time() + $daysinseconds;
         update_site_option('everest_toolkit_activate_time', $newtime);
     }

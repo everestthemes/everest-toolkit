@@ -23,9 +23,10 @@
     background: #424242;
     border-radius: 100%;
     margin: auto 10px;
+    overflow: hidden;
   }
   .everest-toolkit-review-thumbnail img {
-    width: 50px;
+    width: 124px;
     vertical-align: middle;
     opacity: .85;
     transition: all .3s;
@@ -65,4 +66,44 @@
     position: absolute;
     left: 0;
     top: -2px;
+  }
+
+
+  .everest-toolkit-review-text .et-notice-pro-heading {
+      margin-bottom: 15px;
+  }
+
+  .everest-toolkit-review-text .et-notice-pro-heading .et-offer-percent {
+      background-color: #e94c4c;
+      color: white;
+      border-radius: 4px;
+      font-size: 18px;
+      padding: 5px 10px;
+  }
+
+  .everest-toolkit-review-ul .show-mor-message,
+  .everest-toolkit-review-ul .hide-message {
+      background-color: #333;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: 0.5s ease all;
+  }
+
+  .everest-toolkit-review-ul .show-mor-message a,
+  .everest-toolkit-review-ul .hide-message a {
+      color: white;
+
+  }
+
+  .everest-toolkit-review-ul .show-mor-message:hover,
+  .everest-toolkit-review-ul .hide-message:hover {
+      background-color: #e94c4c;
+  }
+
+  .everest-toolkit-review-text p {
+      margin-bottom: 15px;
+  }
+
+  .et-notice-discount code {
+      border-bottom: 1px dashed #e94c4c;
   }
