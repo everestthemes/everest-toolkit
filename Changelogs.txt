@@ -1,6 +1,11 @@
 
 == Changelog ==
 
+== 1.1.8- December 23, 2019 ==
+
+- Recommended plugin changed
+- Notice added
+
 == 1.1.7- November 18, 2019 ==
 
 - Added new demo for Grace Mag
