@@ -127,12 +127,12 @@ if( ! function_exists( 'everest_toolkit_gucherry_blog_config'  ) ) {
 			// Recommended actions.
 			'recommended_actions' => array(
 				'content' => array(
-					'wpforms-lite' => array(
-						'title'       => esc_html__( 'Contact Form by WPForms : Drag & Drop Form Builder for WordPress', 'everest-toolkit' ),
-						'description' => esc_html__( 'Please install the Contact Form by WPForms plugin to create forms for contact. After activation go to WPForms for creating form(s).', 'everest-toolkit' ),
-						'check'       => class_exists( 'WPForms' ),
-						'plugin_slug' => 'wpforms-lite',
-						'id'          => 'wpforms-lite',
+					'newsletter-optin-box' => array(
+						'title'       => esc_html__( 'Newsletter Subscription - Noptin', 'everest-toolkit' ),
+						'description' => esc_html__( 'Easily collect unlimited email subscribers and send them unlimited email newsletters.', 'everest-toolkit' ),
+						'check'       => class_exists( 'Noptin' ),
+						'plugin_slug' => 'newsletter-optin-box',
+						'id'          => 'newsletter-optin-box',
 					),
 				),
 			),
