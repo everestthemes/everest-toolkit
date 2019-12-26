@@ -112,6 +112,7 @@ class Everest_Toolkit {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-everest-toolkit-i18n.php';
 
+
         /**
 		 * Include notify functions
 		 */

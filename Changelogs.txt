@@ -1,5 +1,8 @@
-
 == Changelog ==
+
+== 1.1.9- December 26, 2019 ==
+
+- Notice modified
 
 == 1.1.8- December 23, 2019 ==
 
