@@ -30,7 +30,7 @@ if( ! function_exists( 'everest_toolkit_notify_notice' ) ) {
                 add_site_option('everest_toolkit_activate_time', time());
             }
 
-            $daysinseconds = 10; // 5 Days in seconds (432000).
+            $daysinseconds = 30; // 5 Days in seconds (432000).
 
             if (time() - $activation_time > $daysinseconds) {
 
