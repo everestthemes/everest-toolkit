@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
+if ( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
 	/**
 	 * Main Everestthemes_Demo_Importer Class.
 	 *
@@ -93,7 +93,7 @@ if( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
 		 * @since 1.0.0
 		 */
 		private function init_hooks() {
-			//register_activation_hook( EVERESTTOOLKIT_PLUGIN_FILE, array( 'MG_Install', 'install' ) );
+			// register_activation_hook( EVERESTTOOLKIT_PLUGIN_FILE, array( 'MG_Install', 'install' ) );
 			register_shutdown_function( array( $this, 'log_errors' ) );
 			add_action( 'after_setup_theme', array( $this, 'include_template_functions' ), 11 );
 			add_action( 'init', array( $this, 'init' ), 0 );
@@ -121,7 +121,7 @@ if( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
 		/**
 		 * Define constant if not already set.
 		 *
-		 * @param string $name Constant name.
+		 * @param string      $name Constant name.
 		 * @param string|bool $value Constant value.
 		 */
 		private function define( $name, $value ) {
@@ -139,13 +139,13 @@ if( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
 		 */
 		private function is_request( $type ) {
 			switch ( $type ) {
-				case 'admin' :
+				case 'admin':
 					return is_admin();
-				case 'ajax' :
+				case 'ajax':
 					return defined( 'DOING_AJAX' );
-				case 'cron' :
+				case 'cron':
 					return defined( 'DOING_CRON' );
-				case 'frontend' :
+				case 'frontend':
 					return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
 			}
 		}
@@ -170,21 +170,21 @@ if( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
 			/**
 			 * Class autoloader.
 			 */
-			include_once( ET_ABSPATH . 'includes/demo-importer/class-et-autoloader.php' );
+			include_once ET_ABSPATH . 'includes/demo-importer/class-et-autoloader.php';
 
 			/**
 			 * Abstract classes.
 			 */
-			include_once( ET_ABSPATH . 'includes/demo-importer/abstracts/abstract-et-theme-demo.php' ); // MG_Data for CRUD.
+			include_once ET_ABSPATH . 'includes/demo-importer/abstracts/abstract-et-theme-demo.php'; // MG_Data for CRUD.
 			/**
 			 * Core classes.
 			 */
-			include_once( ET_ABSPATH . 'includes/demo-importer/et-core-functions.php' );
-			include_once( ET_ABSPATH . 'includes/demo-importer/class-et-ajax.php' );
-
+			include_once ET_ABSPATH . 'includes/demo-importer/et-core-functions.php';
+			include_once ET_ABSPATH . 'includes/demo-importer/class-et-ajax.php';
 
 			if ( $this->is_request( 'admin' ) ) {
-				include_once( ET_ABSPATH . 'includes/demo-importer/admin/class-et-admin.php' );
+
+				include_once ET_ABSPATH . 'includes/demo-importer/admin/class-et-admin.php';
 			}
 
 			if ( $this->is_request( 'frontend' ) ) {
@@ -252,7 +252,7 @@ if( ! class_exists( 'Everestthemes_Demo_Importer' ) ) {
 		 * @return string
 		 */
 		public function ajax_url() {
-			
+
 			return admin_url( 'admin-ajax.php', 'relative' );
 		}
 	}

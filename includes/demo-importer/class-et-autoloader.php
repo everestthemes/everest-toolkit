@@ -17,9 +17,9 @@ class ET_Autoloader {
 	 */
 	public function __construct() {
 
-		if ( function_exists( "__autoload" ) ) {
-			
-			spl_autoload_register( "__autoload" );
+		if ( function_exists( '__autoload' ) ) {
+
+			spl_autoload_register( '__autoload' );
 		}
 
 		spl_autoload_register( array( $this, 'autoload' ) );
@@ -50,7 +50,7 @@ class ET_Autoloader {
 
 		if ( $path && is_readable( $path ) ) {
 
-			include_once( $path );
+			include_once $path;
 
 			return true;
 		}
@@ -78,10 +78,10 @@ class ET_Autoloader {
 		if ( 0 === strpos( $class, 'et_theme_demo' ) ) {
 
 			$path = $this->include_path . 'theme-demo/';
-		} else if ( 0 === strpos( $class, 'et_admin' ) ) {
+		} elseif ( 0 === strpos( $class, 'et_admin' ) ) {
 
 			$path = $this->include_path . 'admin/';
-		} else if ( 0 === strpos( $class, 'et_importer' ) ) {
+		} elseif ( 0 === strpos( $class, 'et_importer' ) ) {
 
 			$path = $this->include_path . 'importer/';
 		} else {

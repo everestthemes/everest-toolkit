@@ -99,7 +99,7 @@ $theme = everest_toolkit_theme();
 
 $theme_array = everest_toolkit_theme_array();
 
-if( $theme->get('Author') === 'everestthemes' && in_array( $theme->get('TextDomain'), $theme_array ) ) {
+if ( $theme->get( 'Author' ) === 'everestthemes' && in_array( $theme->get( 'TextDomain' ), $theme_array ) ) {
 
 	// Global for backwards compatibility.
 	$GLOBALS['everest-demo-importer'] = ET();

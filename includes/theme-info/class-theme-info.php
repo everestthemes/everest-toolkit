@@ -143,7 +143,7 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 		 */
 		public static function init( $config ) {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Everest_Toolkit_Theme_Info ) ) {
-				self::$instance = new Everest_Toolkit_Theme_Info;
+				self::$instance = new Everest_Toolkit_Theme_Info();
 				if ( ! empty( $config ) && is_array( $config ) ) {
 					self::$instance->config = $config;
 					self::$instance->setup_config();
@@ -161,17 +161,17 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 
 			$theme = wp_get_theme();
 
-			$this->theme_version = $theme->get( 'Version' );
-			$this->theme_slug    = $theme->get_template();
+			$this->theme_version    = $theme->get( 'Version' );
+			$this->theme_slug       = $theme->get_template();
 			$this->theme_textdomain = $theme->get( 'TextDomain' );
-			$this->page_slug     = $this->theme_textdomain . '-about';
-			$this->action_key    = $this->theme_textdomain . '-recommended_actions';
-			$this->menu_name     = isset( $this->config['menu_name'] ) ? $this->config['menu_name'] : $this->theme_name;
-			$this->page_name     = isset( $this->config['page_name'] ) ? $this->config['page_name'] : $this->theme_name;
-			$this->logo_url      = isset( $this->config['logo_url'] ) ? $this->config['logo_url'] : plugin_dir_url( __FILE__ ) . 'images/everestthemes.png';
-			$this->logo_link     = isset( $this->config['logo_link'] ) ? $this->config['logo_link'] : 'https://www.everestthemes.com/';
-			$this->tabs          = isset( $this->config['tabs'] ) ? $this->config['tabs'] : array();
-			$this->notification  = isset( $this->config['notification'] ) ? $this->config['notification'] : ( '<p>' . sprintf( esc_html__( 'Welcome! Thank you for choosing %1$s! To fully take advantage of the best our theme can offer please make sure you visit our %2$swelcome page%3$s.', 'everest-toolkit' ), $this->theme_name, '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->page_slug ) ) . '">', '</a>' ) . '</p><p><a href="' . esc_url( admin_url( 'themes.php?page=' . $this->page_slug ) ) . '" class="button button-primary" style="text-decoration: none;">' . sprintf( esc_html__( 'Get started with %s', 'everest-toolkit' ), $this->theme_name ) . '</a></p>' );
+			$this->page_slug        = $this->theme_textdomain . '-about';
+			$this->action_key       = $this->theme_textdomain . '-recommended_actions';
+			$this->menu_name        = isset( $this->config['menu_name'] ) ? $this->config['menu_name'] : $this->theme_name;
+			$this->page_name        = isset( $this->config['page_name'] ) ? $this->config['page_name'] : $this->theme_name;
+			$this->logo_url         = isset( $this->config['logo_url'] ) ? $this->config['logo_url'] : plugin_dir_url( __FILE__ ) . 'images/everestthemes.png';
+			$this->logo_link        = isset( $this->config['logo_link'] ) ? $this->config['logo_link'] : 'https://www.everestthemes.com/';
+			$this->tabs             = isset( $this->config['tabs'] ) ? $this->config['tabs'] : array();
+			$this->notification     = isset( $this->config['notification'] ) ? $this->config['notification'] : ( '<p>' . sprintf( esc_html__( 'Welcome! Thank you for choosing %1$s! To fully take advantage of the best our theme can offer please make sure you visit our %2$swelcome page%3$s.', 'everest-toolkit' ), $this->theme_name, '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->page_slug ) ) . '">', '</a>' ) . '</p><p><a href="' . esc_url( admin_url( 'themes.php?page=' . $this->page_slug ) ) . '" class="button button-primary" style="text-decoration: none;">' . sprintf( esc_html__( 'Get started with %s', 'everest-toolkit' ), $this->theme_name ) . '</a></p>' );
 		}
 
 		/**
@@ -186,6 +186,7 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'load_assets' ) );
 			add_action( 'wp_ajax_tt_about_action_dismiss_recommended_action', array( $this, 'dismiss_recommended_action_callback' ) );
 			add_action( 'wp_ajax_nopriv_tt_about_action_dismiss_recommended_action', array( $this, 'dismiss_recommended_action_callback' ) );
+			add_filter( 'et_admin_ajax_filter_localized_data', array( $this, 'localize_recommended_actions' ) );
 		}
 
 		/**
@@ -213,6 +214,13 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 					array( $this, 'render_about_page' )
 				);
 			}
+		}
+
+
+		public function localize_recommended_actions( $localize ) {
+			$recommended_actions             = isset( $this->config['recommended_actions']['content'] ) ? $this->config['recommended_actions']['content'] : array();
+			$localize['recommended_actions'] = $recommended_actions;
+			return $localize;
 		}
 
 		/**
@@ -546,7 +554,7 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 							$complete = true;
 						}
 
-						$complete_class = ( true === $complete ) ? 'complete': '';
+						$complete_class = ( true === $complete ) ? 'complete' : '';
 
 						echo '<div class="action-recommended-box ' . esc_attr( $complete_class ) . '">';
 
@@ -562,7 +570,11 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 						}
 
 						if ( ! empty( $action_value['title'] ) ) {
-							echo '<h3>' . wp_kses_post( $action_value['title'] ) . '</h3>';
+							if ( ! empty( $action_value['optional'] ) ) {
+								echo '<h3>' . wp_kses_post( $action_value['title'] ) . '<small> ( Optional ) </small></h3>';
+							} else {
+								echo '<h3>' . wp_kses_post( $action_value['title'] ) . '</h3>';
+							}
 						}
 
 						if ( ! empty( $action_value['description'] ) ) {
@@ -735,7 +747,7 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 			$output = array(
 				'status' => null,
 				'needs'  => null,
-				);
+			);
 
 			$is_installed = $this->is_plugin_installed( $slug );
 
@@ -747,20 +759,20 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 					$output = array(
 						'status' => $status,
 						'needs'  => 'activate',
-						);
+					);
 				} else {
 					// Plugin is active.
 					$output = array(
 						'status' => $status,
 						'needs'  => 'deactivate',
-						);
+					);
 				}
 			} else {
 				// Not installed.
 				$output = array(
 					'status' => false,
 					'needs'  => 'install',
-					);
+				);
 			}
 
 			return $output;
@@ -799,7 +811,8 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 							'plugin_status' => 'all',
 							'paged'         => '1',
 							'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $file_path ),
-						), network_admin_url( 'plugins.php' )
+						),
+						network_admin_url( 'plugins.php' )
 					);
 					break;
 				case 'activate':
@@ -810,7 +823,8 @@ if ( ! class_exists( 'Everest_Toolkit_Theme_Info' ) ) {
 							'plugin_status' => 'all',
 							'paged'         => '1',
 							'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $file_path ),
-						), network_admin_url( 'plugins.php' )
+						),
+						network_admin_url( 'plugins.php' )
 					);
 					break;
 			} // End switch().

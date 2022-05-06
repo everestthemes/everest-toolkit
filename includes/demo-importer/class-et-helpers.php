@@ -50,7 +50,7 @@ class ET_Helpers {
 	/**
 	 * Download import files. Content .xml and widgets .wie|.json files.
 	 *
-	 * @param  array $import_file_info array with import file details.
+	 * @param  array  $import_file_info array with import file details.
 	 * @param  string $start_date string of date and time.
 	 *
 	 * @return array|WP_Error array of paths to the downloaded files or WP_Error object with error message.
@@ -70,7 +70,7 @@ class ET_Helpers {
 				return new WP_Error(
 					'url_or_local_file_not_defined',
 					sprintf(
-						__( '"import_file_url" or "local_import_file" for %s%s%s are not defined!', 'everest-toolkit' ),
+						__( '"import_file_url" or "local_import_file" for %1$s%2$s%3$s are not defined!', 'everest-toolkit' ),
 						'<strong>',
 						$$import_file_info['import_file_name'],
 						'</strong>'
@@ -121,7 +121,7 @@ class ET_Helpers {
 			if ( is_wp_error( $downloaded_files['widgets'] ) ) {
 				return $downloaded_files['widgets'];
 			}
-		} else if ( ! empty( $import_file_info['local_import_widget_file'] ) ) {
+		} elseif ( ! empty( $import_file_info['local_import_widget_file'] ) ) {
 			if ( file_exists( $import_file_info['local_import_widget_file'] ) ) {
 				$downloaded_files['widgets'] = $import_file_info['local_import_widget_file'];
 			}
@@ -149,7 +149,7 @@ class ET_Helpers {
 			if ( is_wp_error( $downloaded_files['customizer'] ) ) {
 				return $downloaded_files['customizer'];
 			}
-		} else if ( ! empty( $import_file_info['local_import_customizer_file'] ) ) {
+		} elseif ( ! empty( $import_file_info['local_import_customizer_file'] ) ) {
 			if ( file_exists( $import_file_info['local_import_customizer_file'] ) ) {
 				$downloaded_files['customizer'] = $import_file_info['local_import_customizer_file'];
 			}
@@ -174,7 +174,7 @@ class ET_Helpers {
 			return new WP_Error(
 				'url_not_defined',
 				sprintf(
-					__( 'URL for %s%s%s file is not defined!', 'everest-toolkit' ),
+					__( 'URL for %1$s%2$s%3$s file is not defined!', 'everest-toolkit' ),
 					'<strong>',
 					$file_name,
 					'</strong>'
@@ -196,7 +196,7 @@ class ET_Helpers {
 			return new WP_Error(
 				'file_fetching_error',
 				sprintf(
-					__( 'An error occurred while fetching %s%s%s file from the server!%sReason: %s - %s.', 'everest-toolkit' ),
+					__( 'An error occurred while fetching %1$s%2$s%3$s file from the server!%4$sReason: %5$s - %6$s.', 'everest-toolkit' ),
 					'<strong>',
 					$file_name,
 					'</strong>',
@@ -237,7 +237,7 @@ class ET_Helpers {
 			return new WP_Error(
 				'failed_writing_file_to_server',
 				sprintf(
-					__( 'An error occurred while writing file to your server! Tried to write a file to: %s%s.', 'everest-toolkit' ),
+					__( 'An error occurred while writing file to your server! Tried to write a file to: %1$s%2$s.', 'everest-toolkit' ),
 					'<br>',
 					$file_path
 				)
@@ -282,7 +282,7 @@ class ET_Helpers {
 			return new WP_Error(
 				'failed_writing_file_to_server',
 				sprintf(
-					__( 'An error occurred while writing file to your server! Tried to write a file to: %s%s.', 'everest-toolkit' ),
+					__( 'An error occurred while writing file to your server! Tried to write a file to: %1$s%2$s.', 'everest-toolkit' ),
 					'<br>',
 					$file_path
 				)
@@ -318,7 +318,7 @@ class ET_Helpers {
 			return new WP_Error(
 				'failed_reading_file_from_server',
 				sprintf(
-					__( 'An error occurred while reading a file from your server! Tried reading file from path: %s%s.', 'everest-toolkit' ),
+					__( 'An error occurred while reading a file from your server! Tried reading file from path: %1$s%2$s.', 'everest-toolkit' ),
 					'<br>',
 					$file_path
 				)
@@ -342,7 +342,7 @@ class ET_Helpers {
 			return new WP_Error(
 				'no_direct_file_access',
 				sprintf(
-					__( 'This WordPress page does not have %sdirect%s write file access. This plugin needs it in order to save the demo import xml file to the upload directory of your site. You can change this setting with these instructions: %s.', 'everest-toolkit' ),
+					__( 'This WordPress page does not have %1$sdirect%2$s write file access. This plugin needs it in order to save the demo import xml file to the upload directory of your site. You can change this setting with these instructions: %3$s.', 'everest-toolkit' ),
 					'<strong>',
 					'</strong>',
 					'<a href="http://gregorcapuder.com/wordpress-how-to-set-direct-filesystem-method/" target="_blank">How to set <strong>direct</strong> filesystem method</a>'
@@ -351,7 +351,9 @@ class ET_Helpers {
 		}
 
 		// Get plugin page settings.
-		$plugin_page_setup = apply_filters( 'everest-demo-importer/plugin_page_setup', array(
+		$plugin_page_setup = apply_filters(
+			'everest-demo-importer/plugin_page_setup',
+			array(
 				'parent_slug' => 'themes.php',
 				'page_title'  => esc_html__( 'Everestthemes Demo Import', 'everest-toolkit' ),
 				'menu_title'  => esc_html__( 'Import Demo Data', 'everest-toolkit' ),
@@ -478,7 +480,7 @@ class ET_Helpers {
 		if ( ! current_user_can( 'import' ) ) {
 			wp_die(
 				sprintf(
-					__( '%sYour user role isn\'t high enough. You don\'t have permission to import demo data.%s', 'everest-toolkit' ),
+					__( '%1$sYour user role isn\'t high enough. You don\'t have permission to import demo data.%2$s', 'everest-toolkit' ),
 					'<div class="notice  notice-error"><p>',
 					'</p></div>'
 				)
@@ -490,7 +492,7 @@ class ET_Helpers {
 	/**
 	 * Process uploaded files and return the paths to these files.
 	 *
-	 * @param array $uploaded_files $_FILES array form an AJAX request.
+	 * @param array  $uploaded_files $_FILES array form an AJAX request.
 	 * @param string $log_file_path path to the log file.
 	 *
 	 * @return array of paths to the content import and widget import files.
@@ -579,18 +581,18 @@ class ET_Helpers {
 	 */
 	public static function import_file_info( $selected_import_files ) {
 		return PHP_EOL .
-		       sprintf(
-			       __( 'Initial max execution time = %s', 'everest-toolkit' ),
-			       ini_get( 'max_execution_time' )
-		       ) . PHP_EOL .
-		       sprintf(
-			       __( 'Files info:%1$sSite URL = %2$s%1$sData file = %3$s%1$sWidget file = %4$s%1$sCustomizer file = %5$s', 'everest-toolkit' ),
-			       PHP_EOL,
-			       get_site_url(),
-			       $selected_import_files['content'],
-			       empty( $selected_import_files['widgets'] ) ? esc_html__( 'not defined!', 'everest-toolkit' ) : $selected_import_files['widgets'],
-			       empty( $selected_import_files['customizer'] ) ? esc_html__( 'not defined!', 'everest-toolkit' ) : $selected_import_files['customizer']
-		       );
+			sprintf(
+				__( 'Initial max execution time = %s', 'everest-toolkit' ),
+				ini_get( 'max_execution_time' )
+			) . PHP_EOL .
+			sprintf(
+				__( 'Files info:%1$sSite URL = %2$s%1$sData file = %3$s%1$sWidget file = %4$s%1$sCustomizer file = %5$s', 'everest-toolkit' ),
+				PHP_EOL,
+				get_site_url(),
+				$selected_import_files['content'],
+				empty( $selected_import_files['widgets'] ) ? esc_html__( 'not defined!', 'everest-toolkit' ) : $selected_import_files['widgets'],
+				empty( $selected_import_files['customizer'] ) ? esc_html__( 'not defined!', 'everest-toolkit' ) : $selected_import_files['customizer']
+			);
 	}
 
 
@@ -613,4 +615,7 @@ class ET_Helpers {
 		// Send JSON Error response to the AJAX call.
 		wp_send_json( $error_text );
 	}
+
+
+	
 }

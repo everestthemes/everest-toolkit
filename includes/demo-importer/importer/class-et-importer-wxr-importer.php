@@ -38,23 +38,23 @@ class ET_Importer_WXR_Importer {
 
 	// information to import from WXR file
 	protected $categories = array();
-	protected $tags = array();
-	protected $base_url = '';
+	protected $tags       = array();
+	protected $base_url   = '';
 
 	// TODO: REMOVE THESE
-	protected $processed_terms = array();
-	protected $processed_posts = array();
+	protected $processed_terms      = array();
+	protected $processed_posts      = array();
 	protected $processed_menu_items = array();
-	protected $menu_item_orphans = array();
-	protected $missing_menu_items = array();
+	protected $menu_item_orphans    = array();
+	protected $missing_menu_items   = array();
 
 	// NEW STYLE
-	protected $mapping = array();
+	protected $mapping            = array();
 	protected $requires_remapping = array();
-	protected $exists = array();
+	protected $exists             = array();
 	protected $user_slug_override = array();
 
-	protected $url_remap = array();
+	protected $url_remap       = array();
 	protected $featured_images = array();
 
 	/**
@@ -94,15 +94,18 @@ class ET_Importer_WXR_Importer {
 		$this->requires_remapping   = $empty_types;
 		$this->exists               = $empty_types;
 
-		$this->options = wp_parse_args( $options, array(
-			'prefill_existing_posts'    => true,
-			'prefill_existing_comments' => true,
-			'prefill_existing_terms'    => true,
-			'update_attachment_guids'   => false,
-			'fetch_attachments'         => false,
-			'aggressive_url_search'     => false,
-			'default_author'            => null,
-		) );
+		$this->options = wp_parse_args(
+			$options,
+			array(
+				'prefill_existing_posts'    => true,
+				'prefill_existing_comments' => true,
+				'prefill_existing_terms'    => true,
+				'update_attachment_guids'   => false,
+				'fetch_attachments'         => false,
+				'aggressive_url_search'     => false,
+				'default_author'            => null,
+			)
+		);
 	}
 
 	public function set_logger( $logger ) {
@@ -169,11 +172,13 @@ class ET_Importer_WXR_Importer {
 					$this->version = $reader->readString();
 
 					if ( version_compare( $this->version, self::MAX_WXR_VERSION, '>' ) ) {
-						$this->logger->warning( sprintf(
-							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'everest-toolkit' ),
-							$this->version,
-							self::MAX_WXR_VERSION
-						) );
+						$this->logger->warning(
+							sprintf(
+								__( 'This WXR file (version %1$s) is newer than the importer (version %2$s) and may not be supported. Please consider updating.', 'everest-toolkit' ),
+								$this->version,
+								self::MAX_WXR_VERSION
+							)
+						);
 					}
 
 					// Handled everything in this node, move on to the next
@@ -286,11 +291,13 @@ class ET_Importer_WXR_Importer {
 					$this->version = $reader->readString();
 
 					if ( version_compare( $this->version, self::MAX_WXR_VERSION, '>' ) ) {
-						$this->logger->warning( sprintf(
-							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'everest-toolkit' ),
-							$this->version,
-							self::MAX_WXR_VERSION
-						) );
+						$this->logger->warning(
+							sprintf(
+								__( 'This WXR file (version %1$s) is newer than the importer (version %2$s) and may not be supported. Please consider updating.', 'everest-toolkit' ),
+								$this->version,
+								self::MAX_WXR_VERSION
+							)
+						);
 					}
 
 					// Handled everything in this node, move on to the next
@@ -360,11 +367,13 @@ class ET_Importer_WXR_Importer {
 					$this->version = $reader->readString();
 
 					if ( version_compare( $this->version, self::MAX_WXR_VERSION, '>' ) ) {
-						$this->logger->warning( sprintf(
-							__( 'This WXR file (version %s) is newer than the importer (version %s) and may not be supported. Please consider updating.', 'everest-toolkit' ),
-							$this->version,
-							self::MAX_WXR_VERSION
-						) );
+						$this->logger->warning(
+							sprintf(
+								__( 'This WXR file (version %1$s) is newer than the importer (version %2$s) and may not be supported. Please consider updating.', 'everest-toolkit' ),
+								$this->version,
+								self::MAX_WXR_VERSION
+							)
+						);
 					}
 
 					// Handled everything in this node, move on to the next
@@ -770,22 +779,26 @@ class ET_Importer_WXR_Importer {
 
 		// Is this type even valid?
 		if ( ! $post_type_object ) {
-			$this->logger->warning( sprintf(
-				__( 'Failed to import "%s": Invalid post type %s', 'everest-toolkit' ),
-				$data['post_title'],
-				$data['post_type']
-			) );
+			$this->logger->warning(
+				sprintf(
+					__( 'Failed to import "%1$s": Invalid post type %2$s', 'everest-toolkit' ),
+					$data['post_title'],
+					$data['post_type']
+				)
+			);
 
 			return false;
 		}
 
 		$post_exists = $this->post_exists( $data );
 		if ( $post_exists ) {
-			$this->logger->info( sprintf(
-				__( '%s "%s" already exists.', 'everest-toolkit' ),
-				$post_type_object->labels->singular_name,
-				$data['post_title']
-			) );
+			$this->logger->info(
+				sprintf(
+					__( '%1$s "%2$s" already exists.', 'everest-toolkit' ),
+					$post_type_object->labels->singular_name,
+					$data['post_title']
+				)
+			);
 
 			// Even though this post already exists, new comments might need importing
 			$this->process_comments( $comments, $original_id, $data, $post_exists );
@@ -799,7 +812,10 @@ class ET_Importer_WXR_Importer {
 			if ( isset( $this->mapping['post'][ $parent_id ] ) ) {
 				$data['post_parent'] = $this->mapping['post'][ $parent_id ];
 			} else {
-				$meta[]             = array( 'key' => '_wxr_import_parent', 'value' => $parent_id );
+				$meta[]             = array(
+					'key'   => '_wxr_import_parent',
+					'value' => $parent_id,
+				);
 				$requires_remapping = true;
 
 				$data['post_parent'] = 0;
@@ -814,7 +830,10 @@ class ET_Importer_WXR_Importer {
 		} elseif ( isset( $this->mapping['user_slug'][ $author ] ) ) {
 			$data['post_author'] = $this->mapping['user_slug'][ $author ];
 		} else {
-			$meta[]             = array( 'key' => '_wxr_import_user_slug', 'value' => $author );
+			$meta[]             = array(
+				'key'   => '_wxr_import_user_slug',
+				'value' => $author,
+			);
 			$requires_remapping = true;
 
 			$data['post_author'] = (int) get_current_user_id();
@@ -822,7 +841,10 @@ class ET_Importer_WXR_Importer {
 
 		// Does the post look like it contains attachment images?
 		if ( preg_match( self::REGEX_HAS_ATTACHMENT_REFS, $data['post_content'] ) ) {
-			$meta[]             = array( 'key' => '_wxr_import_has_attachment_refs', 'value' => true );
+			$meta[]             = array(
+				'key'   => '_wxr_import_has_attachment_refs',
+				'value' => true,
+			);
 			$requires_remapping = true;
 		}
 
@@ -831,7 +853,7 @@ class ET_Importer_WXR_Importer {
 			'import_id' => $data['post_id'],
 		);
 
-		$allowed  = array(
+		$allowed = array(
 			'post_author'    => true,
 			'post_date'      => true,
 			'post_date_gmt'  => true,
@@ -861,10 +883,12 @@ class ET_Importer_WXR_Importer {
 
 		if ( 'attachment' === $postdata['post_type'] ) {
 			if ( ! $this->options['fetch_attachments'] ) {
-				$this->logger->notice( sprintf(
-					__( 'Skipping attachment "%s", fetching attachments disabled', 'everest-toolkit' ),
-					$data['post_title']
-				) );
+				$this->logger->notice(
+					sprintf(
+						__( 'Skipping attachment "%s", fetching attachments disabled', 'everest-toolkit' ),
+						$data['post_title']
+					)
+				);
 
 				return false;
 			}
@@ -876,11 +900,13 @@ class ET_Importer_WXR_Importer {
 		}
 
 		if ( is_wp_error( $post_id ) ) {
-			$this->logger->error( sprintf(
-				__( 'Failed to import "%s" (%s)', 'everest-toolkit' ),
-				$data['post_title'],
-				$post_type_object->labels->singular_name
-			) );
+			$this->logger->error(
+				sprintf(
+					__( 'Failed to import "%1$s" (%2$s)', 'everest-toolkit' ),
+					$data['post_title'],
+					$post_type_object->labels->singular_name
+				)
+			);
 			$this->logger->debug( $post_id->get_error_message() );
 
 			/**
@@ -909,16 +935,20 @@ class ET_Importer_WXR_Importer {
 		}
 		$this->mark_post_exists( $data, $post_id );
 
-		$this->logger->info( sprintf(
-			__( 'Imported "%s" (%s)', 'everest-toolkit' ),
-			$data['post_title'],
-			$post_type_object->labels->singular_name
-		) );
-		$this->logger->debug( sprintf(
-			__( 'Post %d remapped to %d', 'everest-toolkit' ),
-			$original_id,
-			$post_id
-		) );
+		$this->logger->info(
+			sprintf(
+				__( 'Imported "%1$s" (%2$s)', 'everest-toolkit' ),
+				$data['post_title'],
+				$post_type_object->labels->singular_name
+			)
+		);
+		$this->logger->debug(
+			sprintf(
+				__( 'Post %1$d remapped to %2$d', 'everest-toolkit' ),
+				$original_id,
+				$post_id
+			)
+		);
 
 		// Handle the terms too
 		$terms = apply_filters( 'wp_import_post_terms', $terms, $post_id, $data );
@@ -932,7 +962,10 @@ class ET_Importer_WXR_Importer {
 				if ( isset( $this->mapping['term'][ $key ] ) ) {
 					$term_ids[ $taxonomy ][] = (int) $this->mapping['term'][ $key ];
 				} else {
-					$meta[]             = array( 'key' => '_wxr_import_term', 'value' => $term );
+					$meta[]             = array(
+						'key'   => '_wxr_import_term',
+						'value' => $term,
+					);
 					$requires_remapping = true;
 				}
 			}
@@ -1028,7 +1061,7 @@ class ET_Importer_WXR_Importer {
 	/**
 	 * If fetching attachments is enabled then attempt to create a new attachment
 	 *
-	 * @param array $post Attachment post details from WXR
+	 * @param array  $post Attachment post details from WXR
 	 * @param string $url URL to fetch attachment from
 	 *
 	 * @return int|WP_Error Post ID on success, WP_Error otherwise
@@ -1091,7 +1124,8 @@ class ET_Importer_WXR_Importer {
 
 		if ( $this->options['aggressive_url_search'] ) {
 			// remap resized image URLs, works by stripping the extension and remapping the URL stub.
-			/*if ( preg_match( '!^image/!', $info['type'] ) ) {
+			/*
+			if ( preg_match( '!^image/!', $info['type'] ) ) {
 				$parts = pathinfo( $remote_url );
 				$name = basename( $parts['basename'], ".{$parts['extension']}" ); // PATHINFO_FILENAME in PHP 5.2
 
@@ -1141,7 +1175,7 @@ class ET_Importer_WXR_Importer {
 	 * Process and import post meta items.
 	 *
 	 * @param array $meta List of meta data arrays
-	 * @param int $post_id Post to associate with
+	 * @param int   $post_id Post to associate with
 	 * @param array $post Post data
 	 *
 	 * @return int|WP_Error Number of meta items imported on success, error otherwise.
@@ -1277,7 +1311,7 @@ class ET_Importer_WXR_Importer {
 	 * Process and import comment data.
 	 *
 	 * @param array $comments List of comment data arrays.
-	 * @param int $post_id Post to associate with.
+	 * @param int   $post_id Post to associate with.
 	 * @param array $post Post data.
 	 *
 	 * @return int|WP_Error Number of comments imported on success, error otherwise.
@@ -1315,7 +1349,7 @@ class ET_Importer_WXR_Importer {
 			if ( $post_exists ) {
 				$existing = $this->comment_exists( $comment );
 				if ( $existing ) {
-					$this->mapping['comment'][ $original_id ] = $exists;
+					$this->mapping['comment'][ $original_id ] = $existing;
 					continue;
 				}
 			}
@@ -1331,7 +1365,10 @@ class ET_Importer_WXR_Importer {
 					$comment['comment_parent'] = $this->mapping['comment'][ $parent_id ];
 				} else {
 					// Prepare for remapping later
-					$meta[]             = array( 'key' => '_wxr_import_parent', 'value' => $parent_id );
+					$meta[]             = array(
+						'key'   => '_wxr_import_parent',
+						'value' => $parent_id,
+					);
 					$requires_remapping = true;
 
 					// Wipe the parent for now
@@ -1345,7 +1382,10 @@ class ET_Importer_WXR_Importer {
 					$comment['user_id'] = $this->mapping['user'][ $author_id ];
 				} else {
 					// Prepare for remapping later
-					$meta[]             = array( 'key' => '_wxr_import_user', 'value' => $author_id );
+					$meta[]             = array(
+						'key'   => '_wxr_import_user',
+						'value' => $author_id,
+					);
 					$requires_remapping = true;
 
 					// Wipe the user for now
@@ -1547,10 +1587,12 @@ class ET_Importer_WXR_Importer {
 
 		$user_id = wp_insert_user( wp_slash( $userdata ) );
 		if ( is_wp_error( $user_id ) ) {
-			$this->logger->error( sprintf(
-				__( 'Failed to import user "%s"', 'everest-toolkit' ),
-				$userdata['user_login']
-			) );
+			$this->logger->error(
+				sprintf(
+					__( 'Failed to import user "%s"', 'everest-toolkit' ),
+					$userdata['user_login']
+				)
+			);
 			$this->logger->debug( $user_id->get_error_message() );
 
 			/**
@@ -1569,15 +1611,19 @@ class ET_Importer_WXR_Importer {
 		}
 		$this->mapping['user_slug'][ $original_slug ] = $user_id;
 
-		$this->logger->info( sprintf(
-			__( 'Imported user "%s"', 'everest-toolkit' ),
-			$userdata['user_login']
-		) );
-		$this->logger->debug( sprintf(
-			__( 'User %d remapped to %d', 'everest-toolkit' ),
-			$original_id,
-			$user_id
-		) );
+		$this->logger->info(
+			sprintf(
+				__( 'Imported user "%s"', 'everest-toolkit' ),
+				$userdata['user_login']
+			)
+		);
+		$this->logger->debug(
+			sprintf(
+				__( 'User %1$d remapped to %2$d', 'everest-toolkit' ),
+				$original_id,
+				$user_id
+			)
+		);
 
 		// TODO: Implement meta handling once WXR includes it
 		/**
@@ -1623,7 +1669,7 @@ class ET_Importer_WXR_Importer {
 				$tag_name['description'] = 'wp:tag_description';
 				$tag_name['taxonomy']    = null;
 				$tag_name['id']          = 'wp:term_id';
-				$data['taxonomy'] = 'post_tag';
+				$data['taxonomy']        = 'post_tag';
 				break;
 		}
 
@@ -1684,12 +1730,13 @@ class ET_Importer_WXR_Importer {
 		$allowed  = array(
 			'slug'        => true,
 			'description' => true,
-			'id' => true
+			'id'          => true,
 		);
 
 		// Map the parent comment, or mark it as one we need to fix
 		// TODO: add parent mapping and remapping
-		/*$requires_remapping = false;
+		/*
+		$requires_remapping = false;
 		if ( $parent_id ) {
 			if ( isset( $this->mapping['term'][ $parent_id ] ) ) {
 				$data['parent'] = $this->mapping['term'][ $parent_id ];
@@ -1713,11 +1760,13 @@ class ET_Importer_WXR_Importer {
 
 		$result = wp_insert_term( $data['name'], $data['taxonomy'], $termdata );
 		if ( is_wp_error( $result ) ) {
-			$this->logger->warning( sprintf(
-				__( 'Failed to import %s %s', 'everest-toolkit' ),
-				$data['taxonomy'],
-				$data['name']
-			) );
+			$this->logger->warning(
+				sprintf(
+					__( 'Failed to import %1$s %2$s', 'everest-toolkit' ),
+					$data['taxonomy'],
+					$data['name']
+				)
+			);
 			$this->logger->debug( $result->get_error_message() );
 			do_action( 'wp_import_insert_term_failed', $result, $data );
 
@@ -1738,16 +1787,20 @@ class ET_Importer_WXR_Importer {
 		$this->mapping['term'][ $mapping_key ]    = $term_id;
 		$this->mapping['term_id'][ $original_id ] = $term_id;
 
-		$this->logger->info( sprintf(
-			__( 'Imported "%s" (%s)', 'everest-toolkit' ),
-			$data['name'],
-			$data['taxonomy']
-		) );
-		$this->logger->debug( sprintf(
-			__( 'Term %d remapped to %d', 'everest-toolkit' ),
-			$original_id,
-			$term_id
-		) );
+		$this->logger->info(
+			sprintf(
+				__( 'Imported "%1$s" (%2$s)', 'everest-toolkit' ),
+				$data['name'],
+				$data['taxonomy']
+			)
+		);
+		$this->logger->debug(
+			sprintf(
+				__( 'Term %1$d remapped to %2$d', 'everest-toolkit' ),
+				$original_id,
+				$term_id
+			)
+		);
 
 		do_action( 'wp_import_insert_term', $term_id, $data );
 
@@ -1764,7 +1817,7 @@ class ET_Importer_WXR_Importer {
 	 * Attempt to download a remote file attachment
 	 *
 	 * @param string $url URL of item to fetch
-	 * @param array $post Attachment details
+	 * @param array  $post Attachment details
 	 *
 	 * @return array|WP_Error Local file location details on success, WP_Error otherwise
 	 */
@@ -1779,10 +1832,13 @@ class ET_Importer_WXR_Importer {
 		}
 
 		// fetch the remote url and write it to the placeholder file
-		$response = wp_remote_get( $url, array(
-			'stream'   => true,
-			'filename' => $upload['file'],
-		) );
+		$response = wp_remote_get(
+			$url,
+			array(
+				'stream'   => true,
+				'filename' => $upload['file'],
+			)
+		);
 
 		// request failed
 		if ( is_wp_error( $response ) ) {
@@ -1846,12 +1902,14 @@ class ET_Importer_WXR_Importer {
 
 	protected function post_process_posts( $todo ) {
 		foreach ( $todo as $post_id => $_ ) {
-			$this->logger->debug( sprintf(
-			// Note: title intentionally not used to skip extra processing
-			// for when debug logging is off
-				__( 'Running post-processing for post %d', 'everest-toolkit' ),
-				$post_id
-			) );
+			$this->logger->debug(
+				sprintf(
+				// Note: title intentionally not used to skip extra processing
+				// for when debug logging is off
+					__( 'Running post-processing for post %d', 'everest-toolkit' ),
+					$post_id
+				)
+			);
 
 			$data = array();
 
@@ -1861,16 +1919,20 @@ class ET_Importer_WXR_Importer {
 				if ( isset( $this->mapping['post'][ $parent_id ] ) ) {
 					$data['post_parent'] = $this->mapping['post'][ $parent_id ];
 				} else {
-					$this->logger->warning( sprintf(
-						__( 'Could not find the post parent for "%s" (post #%d)', 'everest-toolkit' ),
-						get_the_title( $post_id ),
-						$post_id
-					) );
-					$this->logger->debug( sprintf(
-						__( 'Post %d was imported with parent %d, but could not be found', 'everest-toolkit' ),
-						$post_id,
-						$parent_id
-					) );
+					$this->logger->warning(
+						sprintf(
+							__( 'Could not find the post parent for "%1$s" (post #%2$d)', 'everest-toolkit' ),
+							get_the_title( $post_id ),
+							$post_id
+						)
+					);
+					$this->logger->debug(
+						sprintf(
+							__( 'Post %1$d was imported with parent %2$d, but could not be found', 'everest-toolkit' ),
+							$post_id,
+							$parent_id
+						)
+					);
 				}
 			}
 
@@ -1880,16 +1942,20 @@ class ET_Importer_WXR_Importer {
 				if ( isset( $this->mapping['user_slug'][ $author_slug ] ) ) {
 					$data['post_author'] = $this->mapping['user_slug'][ $author_slug ];
 				} else {
-					$this->logger->warning( sprintf(
-						__( 'Could not find the author for "%s" (post #%d)', 'everest-toolkit' ),
-						get_the_title( $post_id ),
-						$post_id
-					) );
-					$this->logger->debug( sprintf(
-						__( 'Post %d was imported with author "%s", but could not be found', 'everest-toolkit' ),
-						$post_id,
-						$author_slug
-					) );
+					$this->logger->warning(
+						sprintf(
+							__( 'Could not find the author for "%1$s" (post #%2$d)', 'everest-toolkit' ),
+							get_the_title( $post_id ),
+							$post_id
+						)
+					);
+					$this->logger->debug(
+						sprintf(
+							__( 'Post %1$d was imported with author "%2$s", but could not be found', 'everest-toolkit' ),
+							$post_id,
+							$author_slug
+						)
+					);
 				}
 			}
 
@@ -1911,10 +1977,12 @@ class ET_Importer_WXR_Importer {
 
 			// Do we have updates to make?
 			if ( empty( $data ) ) {
-				$this->logger->debug( sprintf(
-					__( 'Post %d was marked for post-processing, but none was required.', 'everest-toolkit' ),
-					$post_id
-				) );
+				$this->logger->debug(
+					sprintf(
+						__( 'Post %d was marked for post-processing, but none was required.', 'everest-toolkit' ),
+						$post_id
+					)
+				);
 				continue;
 			}
 
@@ -1922,11 +1990,13 @@ class ET_Importer_WXR_Importer {
 			$data['ID'] = $post_id;
 			$result     = wp_update_post( $data, true );
 			if ( is_wp_error( $result ) ) {
-				$this->logger->warning( sprintf(
-					__( 'Could not update "%s" (post #%d) with mapped data', 'everest-toolkit' ),
-					get_the_title( $post_id ),
-					$post_id
-				) );
+				$this->logger->warning(
+					sprintf(
+						__( 'Could not update "%1$s" (post #%2$d) with mapped data', 'everest-toolkit' ),
+						get_the_title( $post_id ),
+						$post_id
+					)
+				);
 				$this->logger->debug( $result->get_error_message() );
 				continue;
 			}
@@ -1967,17 +2037,21 @@ class ET_Importer_WXR_Importer {
 		if ( ! empty( $menu_object ) ) {
 			update_post_meta( $post_id, '_menu_item_object_id', wp_slash( $menu_object ) );
 		} else {
-			$this->logger->warning( sprintf(
-				__( 'Could not find the menu object for "%s" (post #%d)', 'everest-toolkit' ),
-				get_the_title( $post_id ),
-				$post_id
-			) );
-			$this->logger->debug( sprintf(
-				__( 'Post %d was imported with object "%d" of type "%s", but could not be found', 'everest-toolkit' ),
-				$post_id,
-				$menu_object_id,
-				$menu_item_type
-			) );
+			$this->logger->warning(
+				sprintf(
+					__( 'Could not find the menu object for "%1$s" (post #%2$d)', 'everest-toolkit' ),
+					get_the_title( $post_id ),
+					$post_id
+				)
+			);
+			$this->logger->debug(
+				sprintf(
+					__( 'Post %1$d was imported with object "%2$d" of type "%3$s", but could not be found', 'everest-toolkit' ),
+					$post_id,
+					$menu_object_id,
+					$menu_item_type
+				)
+			);
 		}
 
 		delete_post_meta( $post_id, '_wxr_import_menu_item' );
@@ -1994,15 +2068,19 @@ class ET_Importer_WXR_Importer {
 				if ( isset( $this->mapping['comment'][ $parent_id ] ) ) {
 					$data['comment_parent'] = $this->mapping['comment'][ $parent_id ];
 				} else {
-					$this->logger->warning( sprintf(
-						__( 'Could not find the comment parent for comment #%d', 'everest-toolkit' ),
-						$comment_id
-					) );
-					$this->logger->debug( sprintf(
-						__( 'Comment %d was imported with parent %d, but could not be found', 'everest-toolkit' ),
-						$comment_id,
-						$parent_id
-					) );
+					$this->logger->warning(
+						sprintf(
+							__( 'Could not find the comment parent for comment #%d', 'everest-toolkit' ),
+							$comment_id
+						)
+					);
+					$this->logger->debug(
+						sprintf(
+							__( 'Comment %1$d was imported with parent %2$d, but could not be found', 'everest-toolkit' ),
+							$comment_id,
+							$parent_id
+						)
+					);
 				}
 			}
 
@@ -2012,15 +2090,19 @@ class ET_Importer_WXR_Importer {
 				if ( isset( $this->mapping['user'][ $author_id ] ) ) {
 					$data['user_id'] = $this->mapping['user'][ $author_id ];
 				} else {
-					$this->logger->warning( sprintf(
-						__( 'Could not find the author for comment #%d', 'everest-toolkit' ),
-						$comment_id
-					) );
-					$this->logger->debug( sprintf(
-						__( 'Comment %d was imported with author %d, but could not be found', 'everest-toolkit' ),
-						$comment_id,
-						$author_id
-					) );
+					$this->logger->warning(
+						sprintf(
+							__( 'Could not find the author for comment #%d', 'everest-toolkit' ),
+							$comment_id
+						)
+					);
+					$this->logger->debug(
+						sprintf(
+							__( 'Comment %1$d was imported with author %2$d, but could not be found', 'everest-toolkit' ),
+							$comment_id,
+							$author_id
+						)
+					);
 				}
 			}
 
@@ -2033,10 +2115,12 @@ class ET_Importer_WXR_Importer {
 			$data['comment_ID'] = $comment_ID;
 			$result             = wp_update_comment( wp_slash( $data ) );
 			if ( empty( $result ) ) {
-				$this->logger->warning( sprintf(
-					__( 'Could not update comment #%d with mapped data', 'everest-toolkit' ),
-					$comment_id
-				) );
+				$this->logger->warning(
+					sprintf(
+						__( 'Could not update comment #%d with mapped data', 'everest-toolkit' ),
+						$comment_id
+					)
+				);
 				continue;
 			}
 
@@ -2176,7 +2260,7 @@ class ET_Importer_WXR_Importer {
 	 * Mark the post as existing.
 	 *
 	 * @param array $data Post data to mark as existing.
-	 * @param int $post_id Post ID.
+	 * @param int   $post_id Post ID.
 	 */
 	protected function mark_post_exists( $data, $post_id ) {
 		$exists_key                          = $data['guid'];
@@ -2229,7 +2313,7 @@ class ET_Importer_WXR_Importer {
 	 * Mark the comment as existing.
 	 *
 	 * @param array $data Comment data to mark as existing.
-	 * @param int $comment_id Comment ID.
+	 * @param int   $comment_id Comment ID.
 	 */
 	protected function mark_comment_exists( $data, $comment_id ) {
 		$exists_key                             = sha1( $data['comment_author'] . ':' . $data['comment_date'] );
@@ -2243,9 +2327,9 @@ class ET_Importer_WXR_Importer {
 	 */
 	protected function prefill_existing_terms() {
 		global $wpdb;
-		$query = "SELECT t.term_id, tt.taxonomy, t.slug FROM {$wpdb->terms} AS t";
+		$query  = "SELECT t.term_id, tt.taxonomy, t.slug FROM {$wpdb->terms} AS t";
 		$query .= " JOIN {$wpdb->term_taxonomy} AS tt ON t.term_id = tt.term_id";
-		$terms = $wpdb->get_results( $query );
+		$terms  = $wpdb->get_results( $query );
 
 		foreach ( $terms as $item ) {
 			$exists_key                          = sha1( $item->taxonomy . ':' . $item->slug );
@@ -2288,7 +2372,7 @@ class ET_Importer_WXR_Importer {
 	 * Mark the term as existing.
 	 *
 	 * @param array $data Term data to mark as existing.
-	 * @param int $term_id Term ID.
+	 * @param int   $term_id Term ID.
 	 */
 	protected function mark_term_exists( $data, $term_id ) {
 		$exists_key                          = sha1( $data['taxonomy'] . ':' . $data['slug'] );

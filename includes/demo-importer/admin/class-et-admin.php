@@ -27,7 +27,7 @@ class ET_Admin {
 	}
 
 	public function admin_notices() {
-		
+
 		$message = sprintf( esc_html__( 'The %2$Everest Demo Importer%3$s plugin requires %2$sPHP 5.3.2+%3$s to run properly. Please contact your hosting company and ask them to update the PHP version of your site to at least PHP 5.3.2.%4$s Your current version of PHP: %2$s%1$s%3$s', 'everest-toolkit' ), phpversion(), '<strong>', '</strong>', '<br>' );
 
 		printf( '<div class="notice notice-error"><p>%1$s</p></div>', wp_kses_post( $message ) );
@@ -35,7 +35,7 @@ class ET_Admin {
 
 	public function includes() {
 
-		include_once( dirname( __FILE__ ) . '/class-et-admin-demo-config.php' );
+		include_once dirname( __FILE__ ) . '/class-et-admin-demo-config.php';
 	}
 }
 
