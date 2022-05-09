@@ -15,11 +15,11 @@
   margin-top: 0;
 }
 
-#wpbody select {
+/* #wpbody select {
   height: auto;
   padding: 0.62em;
   line-height: inherit;
-}
+} */
 
 .et .notice {
   display: block !important;
@@ -142,4 +142,14 @@
   color: #ffffff;
   background: #b53012;
   border-color: #b53012;
+}
+
+/*Import Select*/
+.ET__multi-select-import .theme-actions .button-primary.updating-message:before {
+  color: #76b511;
+}
+
+.ET__multi-select-import .theme-actions .wp-core-ui .button-primary[disabled] {
+    color: #76b511!important;
+    border-color: #76b511!important;
 }
