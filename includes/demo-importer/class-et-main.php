@@ -87,8 +87,8 @@ class ET_Main {
 		<ul>
 			
 		</ul>
-		<button class="button-primary" id="start-import"><?php esc_html_e( 'Import', 'everest-toolkit' ); ?></button>
-		<button class="button" id="cancel-import"><?php esc_html_e( 'Cancel', 'everest-toolkit' ); ?></button>
+		<button class="button button-primary button-hero" id="start-import"><?php esc_html_e( 'Import', 'everest-toolkit' ); ?></button>
+		<button class="button button-danger button-hero" id="cancel-import"><?php esc_html_e( 'Cancel', 'everest-toolkit' ); ?></button>
 	</div>
 </div>
 

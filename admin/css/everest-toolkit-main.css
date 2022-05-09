@@ -101,7 +101,6 @@
   /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
   left: 80px;
   top: 0;
   width: 100%; /* Full width */
@@ -112,9 +111,35 @@
 }
 /* Modal Content */
 .ET__modal_content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
+  position: absolute;
+    background-color: #e9eff3;
+    margin: auto;
+    padding: 30px;
+    width: 500px;
+    border: 10px solid #ffffff;
+    text-align: center;
+
+    /*Position */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*Plugin Lists*/
+.ET__modal_content ul {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ET__modal_content .button-danger {
+  color: #ffffff;
+  background: #d33916;
+  border: 1px solid #d33916;
+}
+.ET__modal_content .button-danger:hover {
+  color: #ffffff;
+  background: #b53012;
+  border-color: #b53012;
 }
