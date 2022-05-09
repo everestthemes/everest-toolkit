@@ -149,7 +149,7 @@
   color: #76b511;
 }
 
-.ET__multi-select-import .theme-actions .wp-core-ui .button-primary[disabled] {
+.ET__multi-select-import .theme-actions .button-primary[disabled] {
     color: #76b511!important;
     border-color: #76b511!important;
 }
