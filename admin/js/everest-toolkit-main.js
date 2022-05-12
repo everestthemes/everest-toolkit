@@ -79,12 +79,16 @@
         modal.classList.remove('hidden');
         const actions = et_admin_ajax.recommended_actions;
         let html = '';
+        let count = 1;
         Object.keys(actions).forEach(function (action) {
             const pluginData = actions[action];
+
             if (undefined !== pluginData['optional'] && pluginData['optional']) {
                 return;
             }
-            html += `<li><a href="//wordpress.org/plugins/${pluginData['plugin_slug']}" target="_blank">${pluginData['title']}</a></li>`;
+
+            html += `<li>${count}. <a href="//wordpress.org/plugins/${pluginData['plugin_slug']}" target="_blank">${pluginData['title']}</a></li>`;
+            count++;
         });
         const ul = modal.querySelector('ul');
         ul.innerHTML = html;

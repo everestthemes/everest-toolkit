@@ -80,17 +80,17 @@ class ET_Main {
 	 */
 	public function display_plugin_page() {
 		?>
-<div class="ET__modal hidden">
-	<div class="ET__modal_content">
-		<h1><?php esc_html_e( 'Notice', 'everest-toolkit' ); ?></h1>
-		<p> <?php esc_html_e( 'List of required plugins are going to be installed and activated.', 'everest-toolkit' ); ?></p>
-		<ul>
-			
-		</ul>
-		<button class="button button-primary button-hero" id="start-import"><?php esc_html_e( 'Import', 'everest-toolkit' ); ?></button>
-		<button class="button button-danger button-hero" id="cancel-import"><?php esc_html_e( 'Cancel', 'everest-toolkit' ); ?></button>
-	</div>
-</div>
+		<div class="ET__modal hidden">
+			<div class="ET__modal_content">
+				<h1><?php esc_html_e( 'Required Plugins Notice', 'everest-toolkit' ); ?></h1>
+				<p> <?php esc_html_e( 'The following required plugin(s) will be installed and activated on this demo import.', 'everest-toolkit' ); ?></p>
+
+				<h3><?php esc_html_e( 'Plugins:', 'everest-toolkit' ); ?></h3>
+				<ul></ul>
+				<button class="button button-primary button-hero" id="start-import"><?php esc_html_e( 'Import', 'everest-toolkit' ); ?></button>
+				<button class="button button-danger button-hero" id="cancel-import"><?php esc_html_e( 'Cancel', 'everest-toolkit' ); ?></button>
+			</div>
+		</div>
 
 		<div class="ET__intro-notice notice notice-warning is-dismissible">
 			<p><?php esc_html_e( 'Before you begin, make sure all the required plugins are activated.', 'everest-toolkit' ); ?></p>

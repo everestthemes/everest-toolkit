@@ -117,20 +117,12 @@
     padding: 30px;
     width: 500px;
     border: 10px solid #ffffff;
-    text-align: center;
+    /* text-align: center; */
 
     /*Position */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-/*Plugin Lists*/
-.ET__modal_content ul {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  justify-content: center;
 }
 
 .ET__modal_content .button-danger {
