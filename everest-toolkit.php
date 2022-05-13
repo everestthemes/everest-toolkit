@@ -25,7 +25,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Rename this for your plugin and update it as you release new versions.
  */
 
-define( 'EVERESTTOOLKIT_VERSION', '1.1.9' );
+define( 'EVERESTTOOLKIT_VERSION', '1.2.0' );
 
 // Define EVERESTTOOLKIT_PLUGIN_FILE.
 if ( ! defined( 'EVERESTTOOLKIT_PLUGIN_FILE' ) ) {
