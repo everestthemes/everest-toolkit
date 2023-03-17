@@ -1,5 +1,9 @@
 == Changelog ==
 
+== 1.2.1- March 17, 2023 ==
+
+- Fix Javascript issue during demo import
+
 == 1.2.0- May 13, 2022 ==
 
 - Added support for Sports Highlight

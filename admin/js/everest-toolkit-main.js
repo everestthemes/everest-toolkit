@@ -32,9 +32,12 @@
     $('.jseverestimport-data').on('click', function () {
         const self = this;
         const modal = document.querySelector('.ET__modal');
-        modalItemListing(modal);
+
+        modalItemListing(modal, startImport);
+
         const startButton = modal.querySelector('#start-import');
         const cancelButton = modal.querySelector('#cancel-import');
+
         startButton.addEventListener('click', function (e) {
             e.preventDefault();
             modal.classList.add('hidden');
@@ -75,9 +78,20 @@
     });
 
 
-    function modalItemListing(modal) {
-        modal.classList.remove('hidden');
+    function modalItemListing(modal, startImport) {
         const actions = et_admin_ajax.recommended_actions;
+
+        if ("undefined" === typeof actions || !actions || !actions?.length) {
+
+            /**
+             * If we have we don't have any recommended actions then start import immediately.
+             */
+            startImport();
+            return;
+        }
+
+        modal.classList.remove('hidden');
+
         let html = '';
         let count = 1;
         Object.keys(actions).forEach(function (action) {
