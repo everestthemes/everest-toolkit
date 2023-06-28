@@ -112,11 +112,6 @@ class Everest_Toolkit {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-everest-toolkit-i18n.php';
 
-        /**
-		 * Include notify functions
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/notice/notify.php';
-
 		/**
 		 * The class responsible for defining theme information and necessary links.
 		 */
