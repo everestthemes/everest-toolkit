@@ -71,16 +71,19 @@ class Everest_Toolkit_Admin {
 			return false;
 		}
 
-		// $blacklists = array();
-		// $homeurl    = home_url();
+		$blacklists = array(
+			'instawp',
+			'tastewp',
+		);
+		$homeurl    = home_url();
 
-		// if ( ! empty( $blacklists ) && is_array( $blacklists ) ) {
-		// 	foreach ( $blacklists as $blacklist ) {
-		// 		if ( false !== strpos( $homeurl, $blacklist ) ) {
-		// 			return false;
-		// 		}
-		// 	}
-		// }
+		if ( ! empty( $blacklists ) && is_array( $blacklists ) ) {
+			foreach ( $blacklists as $blacklist ) {
+				if ( false !== strpos( $homeurl, $blacklist ) ) {
+					return false;
+				}
+			}
+		}
 
 		return true;
 
